@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Marvel Comics</title>
+</head>
+
+<body>
+
+    <div class="topnav">
+        <a class="active" href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <div class="search-container">
+            <input type="text" placeholder="Search..">
+            <button id="bt-submit"><i class="fa fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="text-head">
+        <h2>Marvel API Comics Developer</h2>
+        <p>This comics listing and search page was implemented using the property API of <a href="https://developer.marvel.com/docs">MARVEL</a>.</p>
+        <p>The search for Hulck returns those available. Empty search returns all comics.</p>
+    </div>
+
+    <div id="comics"></div>
+    <div id="bt-more">
+        <button>View More</button>
+    </div>
+
+    <footer>
+        <div>&copy 2022 By Tiago A. Fontenele</div>
+    </footer>
+</body>
+
+    <script src="./assets/js/script.js" defer></script>
+
+</html>
