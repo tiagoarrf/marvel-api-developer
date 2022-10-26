@@ -12,14 +12,12 @@ var i = 0;
 var k = 0;
 var qtdViewsComics = 8;
 
-
 function mostrarMais(jsonDataSelected) {
     while (k < qtdViewsComics && jsonDataSelected[i] != undefined) {
         const srcImg = jsonDataSelected[i].thumbnail.path + '.' + jsonDataSelected[i].thumbnail.extension
         const nameComic = jsonDataSelected[i].title
-
-        createElement(divComics, srcImg, nameComic)
-
+        const idComic = jsonDataSelected[i].id
+        createElement(divComics, srcImg, nameComic, idComic)
         k++;
         i++;
     }
@@ -37,7 +35,6 @@ function searchComic(searcName) {
     jsonResDataAll.forEach(element => {
         const nameComic = element.title
         if (nameComic.toUpperCase().includes(searcName)) {
-            console.log(nameComic)
             jsonResDataSearch.push(element)
         }
     });
@@ -53,7 +50,8 @@ function searchComic(searcName) {
     while (k < qtdViewsComics && jsonResDataSearch[index] != undefined) {
         const srcImg = jsonResDataSearch[index].thumbnail.path + '.' + jsonResDataSearch[index].thumbnail.extension
         const nameComic = jsonResDataSearch[index].title
-        createElement(divComics, srcImg, nameComic)
+        const idComic = jsonResDataSearch[index].id
+        createElement(divComics, srcImg, nameComic, idComic)
         k++;
         index++;
     }
@@ -62,8 +60,8 @@ function searchComic(searcName) {
 
 function getData() {
     const ts = "xxxxxxxxx"
-    const keyPub = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
-    const hash = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    const keyPub = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    const hash = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 
     fetch(`http://gateway.marvel.com/v1/public/comics?ts=${ts}&apikey=${keyPub}&hash=${hash}&limit=100`)
         .then(res => res.json())
@@ -72,16 +70,16 @@ function getData() {
             while (k < qtdViewsComics && json.data.results[i] != undefined) {
                 const srcImg = json.data.results[i].thumbnail.path + '.' + json.data.results[i].thumbnail.extension
                 const nameComic = json.data.results[i].title
-                createElement(divComics, srcImg, nameComic)
+                const idComic = json.data.results[i].id
+                createElement(divComics, srcImg, nameComic, idComic)
                 k++;
                 i++;
             }
             k = 0;
         });
-
 }
 
-function createElement(divToAppend, srcImg, nameComic) {
+function createElement(divToAppend, srcImg, nameComic, idComic) {
     const divMae = document.createElement('div')
     const divFilho = document.createElement('div')
     const buttomDetails = document.createElement('button')
@@ -100,6 +98,7 @@ function createElement(divToAppend, srcImg, nameComic) {
 
     divMae.classList.add("comic")
     buttomDetails.classList.add("bt-details")
+    buttomDetails.setAttribute("id", idComic);
     buttomOrder.classList.add("bt-order")
 }
 

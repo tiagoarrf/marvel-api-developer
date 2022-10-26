@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/modal.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Marvel Comics</title>
 </head>
@@ -24,20 +25,39 @@
 
     <div class="text-head">
         <h2>Marvel API Comics Developer</h2>
-        <p>This comics listing and search page was implemented using the property API of <a href="https://developer.marvel.com/docs">MARVEL</a>.</p>
+        <p>This comics listing and search page was implemented using the property API of <a
+                href="https://developer.marvel.com/docs">MARVEL</a>.</p>
         <p>The search for Hulck returns those available. Empty search returns all comics.</p>
     </div>
-
+    <div id="modal-container">
+        <div class="modal">
+            <span id="bt-close-modal">&times;</span>
+            <p>
+            <h2 id="comic-title-modal">Title Comic</h2>
+            </p>
+            <span><img id="comic-img-modal"
+                    src="http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg"></span>
+            <div class="info-comic-modal">
+                <h3 id="comic-id-modal">ID: </h3>
+                <h3 id="comic-isbn-modal">ISBN: </h3>
+                <h3 id="comic-issn-modal">ISSN: </h3>
+                <h3 id="comic-pages-modal">PAGES: </h3>
+                <h3>Oficial Link Details: <a id="comic-link-page-modal" href="https://www.marvel.com/comics"
+                        target="_blank">open</a></h3>
+            </div>
+        </div>
+    </div>
     <div id="comics"></div>
     <div id="bt-more">
         <button>View More</button>
     </div>
 
     <footer>
-        <div>&copy 2022 By Tiago A. Fontenele</div>
+        <div>By Tiago A. Fontenele &copy 2022 Marvel</div>
     </footer>
 </body>
 
-    <script src="./assets/js/script.js" defer></script>
+<script src="./assets/js/script.js" defer></script>
+<script src="./assets/js/detaisModal.js" defer></script>
 
 </html>
