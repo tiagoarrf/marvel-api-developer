@@ -12,7 +12,7 @@ var i = 0;
 var k = 0;
 var qtdViewsComics = 8;
 
-function mostrarMais(jsonDataSelected) {
+function showMore(jsonDataSelected) {
     while (k < qtdViewsComics && jsonDataSelected[i] != undefined) {
         const srcImg = jsonDataSelected[i].thumbnail.path + '.' + jsonDataSelected[i].thumbnail.extension
         const nameComic = jsonDataSelected[i].title
@@ -120,7 +120,7 @@ btSubmit.onclick = () => {
 }
 
 btMore.onclick = () => {
-    modeSearche ? mostrarMais(jsonResDataSearch) : mostrarMais(jsonResDataAll)
+    modeSearche ? showMore(jsonResDataSearch) : showMore(jsonResDataAll)
 }
 
 window.onload = () => {
